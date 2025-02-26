@@ -4,7 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Les 10 Meilleurs Restaurants de Montpellier</title>
+    
+    <!-- CSS principal -->
     <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- CSS pour la carte -->
+    <link rel="stylesheet" href="css/map.css">
+    
+    <!-- CSS pour le système de filtrage -->
+    <link rel="stylesheet" href="css/filter.css">
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
 </head>
 <body>
     <header>
@@ -17,9 +30,25 @@
             <p>Montpellier, joyau de l'Occitanie, est réputée pour sa richesse gastronomique. Entre cuisine traditionnelle, fusion innovante et saveurs du monde, voici une sélection des établissements les plus appréciés par les gourmets.</p>
         </div>
         
+        <!-- Section de la carte interactive -->
+        <section class="map-section">
+            <div class="map-title">
+                <h2>Carte des restaurants</h2>
+                <p>Explorez les meilleurs restaurants de Montpellier sur la carte interactive. Cliquez sur un marqueur pour voir les détails du restaurant.</p>
+            </div>
+            <div class="map-container">
+                <div id="map"></div>
+            </div>
+        </section>
+        
+        <!-- Section du système de filtrage -->
+        <section id="filter-container">
+            <!-- Le contenu sera généré par JavaScript -->
+        </section>
+        
         <div class="restaurants">
             <!-- Restaurant 1 -->
-            <div class="restaurant-card">
+            <div id="restaurant-1" class="restaurant-card" data-id="1" data-rating="5.0" data-type="gastronomique" data-quartier="centre-historique" data-price="€€€">
                 <div class="restaurant-image" style="background-image: url('https://cdnjs.cloudflare.com/ajax/libs/galereya/0.9.0/images/1.jpg')">
                     <div class="rating">5.0 ★</div>
                 </div>
@@ -34,11 +63,12 @@
                         <p>La chef est incroyablement douée, avec une intelligence culinaire et une grâce qui nous ont vraiment impressionnés. Elle a le don de trouver un équilibre créatif dans des compositions très élégantes. Chaque plat n'est pas seulement délicieux, mais aussi astucieux sans être prétentieux, et présenté comme une véritable œuvre d'art.</p>
                         <p class="reviewer">- Sophie M.</p>
                     </div>
+                    <a class="center-on-map" onclick="centerMapOnRestaurant(1)">📍 Voir sur la carte</a>
                 </div>
             </div>
             
             <!-- Restaurant 2 -->
-            <div class="restaurant-card">
+            <div id="restaurant-2" class="restaurant-card" data-id="2" data-rating="4.9" data-type="gastronomique" data-quartier="centre-historique" data-price="€€€">
                 <div class="restaurant-image" style="background-image: url('https://cdnjs.cloudflare.com/ajax/libs/galereya/0.9.0/images/2.jpg')">
                     <div class="rating">4.9 ★</div>
                 </div>
@@ -53,11 +83,12 @@
                         <p>Ce fut le point culminant de notre visite à Montpellier. Nous avons pris le menu dégustation en 7 plats et avons savouré chaque assiette - présentation magnifique, textures variées et profondeur de saveurs dans chaque sauce. Le service était chaleureux, intime et sans prétention, nous avions l'impression d'être dans la salle à manger privée d'un ami.</p>
                         <p class="reviewer">- Pierre L.</p>
                     </div>
+                    <a class="center-on-map" onclick="centerMapOnRestaurant(2)">📍 Voir sur la carte</a>
                 </div>
             </div>
             
             <!-- Restaurant 3 -->
-            <div class="restaurant-card">
+            <div id="restaurant-3" class="restaurant-card" data-id="3" data-rating="4.9" data-type="bistronomique" data-quartier="centre-historique" data-price="€€">
                 <div class="restaurant-image" style="background-image: url('https://cdnjs.cloudflare.com/ajax/libs/galereya/0.9.0/images/3.jpg')">
                     <div class="rating">4.9 ★</div>
                 </div>
@@ -72,11 +103,12 @@
                         <p>Les t'OCqués est un véritable joyau culinaire. La cuisine y est excellente et passionnante, particulièrement les plats de poisson qui sont à la fois savoureux et magnifiquement présentés. Les assiettes vibrantes et colorées sont un festin pour les yeux autant que pour le palais.</p>
                         <p class="reviewer">- Christophe N.</p>
                     </div>
+                    <a class="center-on-map" onclick="centerMapOnRestaurant(3)">📍 Voir sur la carte</a>
                 </div>
             </div>
             
             <!-- Restaurant 4 -->
-            <div class="restaurant-card">
+            <div id="restaurant-4" class="restaurant-card" data-id="4" data-rating="4.8" data-type="bistro" data-quartier="écusson" data-price="€€">
                 <div class="restaurant-image" style="background-image: url('https://cdnjs.cloudflare.com/ajax/libs/galereya/0.9.0/images/4.jpg')">
                     <div class="rating">4.8 ★</div>
                 </div>
@@ -91,11 +123,12 @@
                         <p>Nourriture superbe dans une très belle ambiance (jolies tables et chaises tendance sur une petite place sous un arbre, en plein cœur du centre historique de Montpellier). Le thon était délicieux, et la salade avec chèvre et pain ciabatta était excellente aussi. Très bon rapport qualité-prix.</p>
                         <p class="reviewer">- Lucie M.</p>
                     </div>
+                    <a class="center-on-map" onclick="centerMapOnRestaurant(4)">📍 Voir sur la carte</a>
                 </div>
             </div>
             
             <!-- Restaurant 5 -->
-            <div class="restaurant-card">
+            <div id="restaurant-5" class="restaurant-card" data-id="5" data-rating="4.8" data-type="gastronomique" data-quartier="centre-historique" data-price="€€€">
                 <div class="restaurant-image" style="background-image: url('https://cdnjs.cloudflare.com/ajax/libs/galereya/0.9.0/images/5.jpg')">
                     <div class="rating">4.8 ★</div>
                 </div>
@@ -110,11 +143,12 @@
                         <p>Le personnel incroyablement sympathique offre une expérience de haute cuisine française détendue avec leur propre touche moderne. De magnifiques produits soigneusement travaillés pour mettre en valeur les ingrédients.</p>
                         <p class="reviewer">- Richard D.</p>
                     </div>
+                    <a class="center-on-map" onclick="centerMapOnRestaurant(5)">📍 Voir sur la carte</a>
                 </div>
             </div>
             
             <!-- Restaurant 6 -->
-            <div class="restaurant-card">
+            <div id="restaurant-6" class="restaurant-card" data-id="6" data-rating="4.8" data-type="bistronomique" data-quartier="quartier-des-beaux-arts" data-price="€€">
                 <div class="restaurant-image" style="background-image: url('https://cdnjs.cloudflare.com/ajax/libs/galereya/0.9.0/images/6.jpg')">
                     <div class="rating">4.8 ★</div>
                 </div>
@@ -129,11 +163,12 @@
                         <p>C'est probablement le meilleur rapport qualité-prix que j'ai jamais connu. L'ambiance est très décontractée mais élégante. Le menu fixe était très savoureux et équilibré. La carte des vins est très accessible et pas trop chère. Je recommande vivement ! J'ai passé un excellent moment.</p>
                         <p class="reviewer">- Marc P.</p>
                     </div>
+                    <a class="center-on-map" onclick="centerMapOnRestaurant(6)">📍 Voir sur la carte</a>
                 </div>
             </div>
             
             <!-- Restaurant 7 -->
-            <div class="restaurant-card">
+            <div id="restaurant-7" class="restaurant-card" data-id="7" data-rating="4.8" data-type="gastronomique" data-quartier="centre-historique" data-price="€€€€">
                 <div class="restaurant-image" style="background-image: url('https://cdnjs.cloudflare.com/ajax/libs/galereya/0.9.0/images/7.jpg')">
                     <div class="rating">4.8 ★</div>
                 </div>
@@ -148,11 +183,12 @@
                         <p>Endroit incroyable, tout, de la cuisine à l'atmosphère et au service, est simplement parfait ! Tous les plats sont extrêmement délicieux, ils commencent par de nombreuses petites mises en bouche avant les entrées, variées et excellentes. Le personnel est très poli, professionnel et connaît parfaitement les plats et les ingrédients.</p>
                         <p class="reviewer">- Nicolas H.</p>
                     </div>
+                    <a class="center-on-map" onclick="centerMapOnRestaurant(7)">📍 Voir sur la carte</a>
                 </div>
             </div>
             
             <!-- Restaurant 8 -->
-            <div class="restaurant-card">
+            <div id="restaurant-8" class="restaurant-card" data-id="8" data-rating="4.8" data-type="fusion" data-quartier="centre-historique" data-price="€€">
                 <div class="restaurant-image" style="background-image: url('https://cdnjs.cloudflare.com/ajax/libs/galereya/0.9.0/images/8.jpg')">
                     <div class="rating">4.8 ★</div>
                 </div>
@@ -167,11 +203,12 @@
                         <p>À la hauteur de sa formidable réputation, ce merveilleux petit restaurant propose de délicieux plats de fusion asiatique-française, combinant des saveurs qui ne devraient pas fonctionner ensemble, mais qui sont absolument réussies ! D'excellents vins et un service parfait rendent toute l'expérience culinaire inoubliable !</p>
                         <p class="reviewer">- David A.</p>
                     </div>
+                    <a class="center-on-map" onclick="centerMapOnRestaurant(8)">📍 Voir sur la carte</a>
                 </div>
             </div>
             
             <!-- Restaurant 9 -->
-            <div class="restaurant-card">
+            <div id="restaurant-9" class="restaurant-card" data-id="9" data-rating="4.7" data-type="bistro" data-quartier="centre-historique" data-price="€€">
                 <div class="restaurant-image" style="background-image: url('https://cdnjs.cloudflare.com/ajax/libs/galereya/0.9.0/images/9.jpg')">
                     <div class="rating">4.7 ★</div>
                 </div>
@@ -186,11 +223,12 @@
                         <p>Tout ce que j'ai commandé était vraiment délicieux. L'atmosphère est chaleureuse et confortable. Le prix est très agréable, je trouve que ce n'est pas cher pour la qualité de la nourriture. Je reviendrais sans hésiter.</p>
                         <p class="reviewer">- Kevin J.</p>
                     </div>
+                    <a class="center-on-map" onclick="centerMapOnRestaurant(9)">📍 Voir sur la carte</a>
                 </div>
             </div>
             
             <!-- Restaurant 10 -->
-            <div class="restaurant-card">
+            <div id="restaurant-10" class="restaurant-card" data-id="10" data-rating="4.6" data-type="gastronomique" data-quartier="les-aubes" data-price="€€€">
                 <div class="restaurant-image" style="background-image: url('https://cdnjs.cloudflare.com/ajax/libs/galereya/0.9.0/images/10.jpg')">
                     <div class="rating">4.6 ★</div>
                 </div>
@@ -205,6 +243,7 @@
                         <p>Tout était plus qu'excellent ! J'ai adoré l'ambiance, c'était très propre et apaisant. Le personnel était très professionnel, poli, et a tout expliqué sur la nourriture avec beaucoup de détails. Et la cuisine elle-même était extrêmement délicieuse. L'endroit idéal pour profiter d'un dîner savoureux et raffiné !</p>
                         <p class="reviewer">- Nathalie H.</p>
                     </div>
+                    <a class="center-on-map" onclick="centerMapOnRestaurant(10)">📍 Voir sur la carte</a>
                 </div>
             </div>
         </div>
@@ -214,5 +253,19 @@
         <p>Les 10 Meilleurs Restaurants de Montpellier - Données issues de Google Maps</p>
         <p>© 2025 - Les notes et commentaires sont issus des avis Google</p>
     </footer>
+    
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+   
+    <!-- Données des restaurants -->
+    <script src="js/restaurants-data.js"></script>
+    
+    <!-- Script de la carte -->
+    <script src="js/map.js"></script>
+    
+    <!-- Script de filtrage -->
+    <script src="js/filter.js"></script>
 </body>
 </html>
