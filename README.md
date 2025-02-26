@@ -8,11 +8,14 @@ Un site web présentant les 10 meilleurs restaurants de Montpellier selon Google
 - Informations détaillées pour chaque restaurant (adresse, téléphone, horaires)
 - Commentaires clients authentiques
 - Design responsive pour une consultation sur tous les appareils
+- **[Nouveau]** Carte interactive pour localiser tous les restaurants
 
 ## Technologies utilisées
 
 - HTML5
-- CSS3
+- CSS3 
+- JavaScript
+- Leaflet.js pour la carte interactive
 - Design responsive
 - Images hébergées sur CDN
 
@@ -22,10 +25,10 @@ Vous pouvez voir le site en direct via GitHub Pages: [Les 10 Meilleurs Restauran
 
 ## Prochaines améliorations prévues
 
-- Ajouter une carte interactive pour localiser les restaurants
 - Intégrer un système de filtrage par type de cuisine
 - Ajouter plus de photos pour chaque restaurant
-- Mettre en place un formulaire de contact
+- Créer des pages de détail pour chaque restaurant
+- Mettre en place une fonctionnalité de recherche
 
 ## Comment contribuer
 
