@@ -1,0 +1,158 @@
+:root {
+    --primary-color: #1a5276;
+    --secondary-color: #f4f4f4;
+    --accent-color: #d4ac0d;
+    --text-color: #333;
+    --light-text: #f8f9fa;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 3rem 1rem;
+    background-image: linear-gradient(rgba(26, 82, 118, 0.9), rgba(26, 82, 118, 0.7)), url('https://cdnjs.cloudflare.com/ajax/libs/galereya/0.9.0/images/11.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.restaurants {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.restaurant-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-5px);
+}
+
+.restaurant-image {
+    height: 200px;
+    background-color: #ddd;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.rating {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0.3rem 0.7rem;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.restaurant-details {
+    padding: 1.5rem;
+}
+
+.restaurant-name {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.restaurant-address {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.restaurant-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.restaurant-review {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 6px;
+    font-style: italic;
+    position: relative;
+}
+
+.restaurant-review::before {
+    content: '"';
+    font-size: 3rem;
+    color: #ddd;
+    position: absolute;
+    top: -15px;
+    left: 5px;
+}
+
+.reviewer {
+    text-align: right;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+    .restaurants {
+        grid-template-columns: 1fr;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+}
